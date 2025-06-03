@@ -41,7 +41,7 @@ def setup_logging(
     return logger
 
 
-def main() -> None:
+def main() -> int:
     parser = argparse.ArgumentParser("picard/gatk metrics to sqlite tool")
 
     # Logging flags.
@@ -198,7 +198,7 @@ def main() -> None:
     else:
         sys.exit("No recognized tool was selected")
 
-    return
+    return 0
 
 
 if __name__ == "__main__":

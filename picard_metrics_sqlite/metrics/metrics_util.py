@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+from typing import Optional
 
 import pandas as pd
 
@@ -86,7 +87,7 @@ def picard_select_tsv_to_df(stats_path, select, logger):
     return None
 
 
-def gatk_select_tsv_to_df(stats_path, select, logger):
+def gatk_select_tsv_to_df(stats_path, select, logger) -> Optional[pd.DataFrame]:
     # much of this should just be replaced with df = pd.read_table(stats_path)
     # read_header = False
     # data_dict = dict()
