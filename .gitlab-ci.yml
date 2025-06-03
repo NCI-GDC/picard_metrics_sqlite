@@ -9,6 +9,7 @@ include:
 variables:
   BUILD_PY_VERSION: python3.11
   RELEASE_PY_VERSION: python3.11
+  BASE_CONTAINER_VERSION: 3.2.3
 
 .parallel:
   parallel:
