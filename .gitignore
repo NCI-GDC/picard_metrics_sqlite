@@ -113,3 +113,8 @@ test-reports/
 vars.env
 gl-code-quality-report.html
 aws-lc
+
+#wheel fix
+
+gl-sast-report.json
+gl-secret-detection-report.json
