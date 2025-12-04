@@ -1,7 +1,6 @@
 from .metrics_util import gatk_select_tsv_to_df
 
 
-
 def gatk_CalculateContamination_to_df(metric_path, logger):
     select = ["level", "sample"]
     df = gatk_select_tsv_to_df(metric_path, select, logger)
@@ -22,13 +21,7 @@ def run(job_uuid, metric_path, bam, input_state, engine, logger, metric_name) ->
     return
 
 
-
-
-
-
-
-
-#def gatk_CalculateContamination_to_df(metric_path, logger):
+# def gatk_CalculateContamination_to_df(metric_path, logger):
 #    select = ["level", "sample"]
 #    df = gatk_select_tsv_to_df(metric_path, select, logger)
 #    if df:
@@ -37,7 +30,7 @@ def run(job_uuid, metric_path, bam, input_state, engine, logger, metric_name) ->
 #        return
 
 
-#def run(job_uuid, metric_path, bam, input_state, engine, logger, metric_name) -> None:
+# def run(job_uuid, metric_path, bam, input_state, engine, logger, metric_name) -> None:
 #    table_name = metric_name
 #    df = gatk_CalculateContamination_to_df(metric_path, logger)
 #    if df:
