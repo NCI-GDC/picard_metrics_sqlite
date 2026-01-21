@@ -67,9 +67,7 @@ def db_has_data(engine: sqlalchemy.Engine) -> bool:
         ).fetchall()
 
         for (table,) in tables:
-            count = conn.execute(
-                text(f'SELECT COUNT(*) FROM "{table}"')
-            ).scalar_one()
+            count = conn.execute(text(f'SELECT COUNT(*) FROM "{table}"')).scalar_one()
             if count > 0:
                 return True
 
@@ -227,4 +225,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-
