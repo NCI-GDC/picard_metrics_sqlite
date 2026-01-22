@@ -149,12 +149,14 @@ def main() -> int:
 
     elif metric_name == "CollectHsMetrics":
         bam = get_param(args, "bam")
+        input_state = get_param(args, "input_state")
         picard_collecthsmetrics.run(
             job_uuid, metric_path, bam, input_state, engine, logger, metric_name
         )
 
     elif metric_name == "CollectMultipleMetrics":
         bam = get_param(args, "bam")
+        input_state = get_param(args, "input_state")
         picard_collectmultiplemetrics.run(
             bam,
             engine,
@@ -177,36 +179,42 @@ def main() -> int:
 
     elif metric_name == "CollectOxoGMetrics":
         bam = get_param(args, "bam")
+        input_state = get_param(args, "input_state")
         picard_collectoxogmetrics.run(
             job_uuid, metric_path, bam, input_state, engine, logger, metric_name
         )
 
     elif metric_name == "CollectRnaSeqMetrics":
         bam = get_param(args, "bam")
+        input_state = get_param(args, "input_state")
         picard_collectrnaseqmetrics.run(
             job_uuid, metric_path, bam, input_state, engine, logger, metric_name
         )
 
     elif metric_name == "CollectTargetedPcrMetrics":
         bam = get_param(args, "bam")
+        input_state = get_param(args, "input_state")
         picard_collecttargetedpcrmetrics.run(
             job_uuid, metric_path, bam, input_state, engine, logger, metric_name
         )
 
     elif metric_name == "CollectWgsMetrics":
         bam = get_param(args, "bam")
+        input_state = get_param(args, "input_state")
         picard_collectwgsmetrics.run(
             job_uuid, metric_path, bam, input_state, engine, logger, metric_name
         )
 
     elif metric_name == "MarkDuplicates":
         bam = get_param(args, "bam")
+        input_state = get_param(args, "input_state")
         picard_markduplicates.run(
             job_uuid, metric_path, bam, input_state, engine, logger, metric_name
         )
 
     elif metric_name == "ValidateSamFile":
         bam = get_param(args, "bam")
+        input_state = get_param(args, "input_state")
         picard_validatesamfile.run(
             job_uuid, metric_path, bam, input_state, engine, logger
         )
