@@ -2,6 +2,7 @@ import sys
 from collections import defaultdict
 import pandas as pd
 
+
 def run(job_uuid, stats_path, bam, input_state, engine, logger):
     val_error_dict = defaultdict(dict)
 
@@ -14,8 +15,12 @@ def run(job_uuid, stats_path, bam, input_state, engine, logger):
                 validation_type = line.split(":")[0]
                 line_split = [x.strip() for x in line.split(",")]
                 # Join all fields after the first one or two columns
-                line_error = ", ".join(line_split[1:]) if len(line_split) > 1 else line_split[0]
-                val_error_dict[validation_type][line_error] = val_error_dict[validation_type].get(line_error, 0) + 1
+                line_error = (
+                    ", ".join(line_split[1:]) if len(line_split) > 1 else line_split[0]
+                )
+                val_error_dict[validation_type][line_error] = (
+                    val_error_dict[validation_type].get(line_error, 0) + 1
+                )
             elif line.startswith("No errors found"):
                 validation_type = "PASS"
                 line_error = line
@@ -33,11 +38,10 @@ def run(job_uuid, stats_path, bam, input_state, engine, logger):
                 "job_uuid": job_uuid,
                 "bam": bam,
                 "severity": validation_type,
-                "input_state": input_state
+                "input_state": input_state,
             }
             df = pd.DataFrame([store_dict])
             table_name = "picard_ValidateSamFile"
             df.to_sql(table_name, engine, if_exists="append", index=False)
 
     return
-
